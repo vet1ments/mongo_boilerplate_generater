@@ -1,0 +1,7 @@
+package {{.PackageName}}
+
+{{range $_, $v := .Models}}
+type {{$v.Name}} struct { {{range $_, $f := $v.Fields}}
+	{{$f.Upper}} {{$f.Type}} `bson:"{{$f.Snake}}" json:"{{$f.Snake}},omitempty"`{{end}}
+}
+{{end}}
